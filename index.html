@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Digital Workplace | Operations Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">DW</span><span><strong>Digital Workplace</strong><small>Operations Hub</small></span></div>
+      <nav aria-label="Primary navigation">
+        <a class="nav-active" href="#overview">▦ <span>Overview</span></a>
+        <a href="#requests">☷ <span>Request tracker</span></a>
+        <a href="#insights">◉ <span>Improvement insights</span></a>
+        <a href="#about">ⓘ <span>Project details</span></a>
+      </nav>
+      <div class="sidebar-foot">PORTFOLIO DEMO<br />Synthetic data only<br /><span>Stored in this browser</span></div>
+    </aside>
+    <main>
+      <header class="topbar"><div><span class="eyebrow">DIGITAL WORKPLACE / OPERATIONS</span><h1>Request & Improvement Dashboard</h1><p>Track workplace requests, monitor priorities, and identify process improvements.</p></div><div class="top-actions"><button id="reset" class="button button-ghost" type="button">Reset demo</button><button id="export" class="button button-outline" type="button">↓ Export CSV</button><button id="openForm" class="button button-primary" type="button">+ New request</button></div></header>
+      <section id="overview" aria-label="Overview">
+        <div class="stats" id="stats"></div>
+        <div class="panels">
+          <article class="panel"><div class="panel-head"><h2>Request status</h2><span>All requests</span></div><div id="statusBars" class="bar-section"></div></article>
+          <article class="panel"><div class="panel-head"><h2>Workplace service categories</h2><span>Volume by service</span></div><div id="categoryBars" class="bar-section"></div></article>
+        </div>
+      </section>
+      <section class="panel tracker" id="requests"><div class="panel-head"><div><h2>Request tracker</h2><p>Update the request status or assigned owner directly in the table.</p></div><span id="countLabel" class="counter"></span></div>
+        <div class="filters"><label class="search-wrap"><span class="sr-only">Search requests</span><input id="search" placeholder="Search by ID, title, department..." /></label><label><span class="sr-only">Filter by status</span><select id="statusFilter"><option value="">All statuses</option></select></label><label><span class="sr-only">Filter by priority</span><select id="priorityFilter"><option value="">All priorities</option></select></label></div>
+        <div class="table-wrap"><table><thead><tr><th>Request</th><th>Team / Service</th><th>Priority</th><th>Assigned owner</th><th>Status</th><th>Opened</th></tr></thead><tbody id="requestRows"></tbody></table></div>
+        <p class="muted footnote">Priority = impact × urgency; illustrative response targets are 4h / 24h / 72h / 7d for P1 / P2 / P3 / P4. This is a learning prototype, not a production ITSM system.</p>
+      </section>
+      <section id="insights" class="panel insights"><div class="panel-head"><h2>Opportunities for improvement</h2><span>Rules-based management insights</span></div><div id="recommendations" class="insight-list"></div></section>
+      <section id="about" class="about"><strong>Project scope</strong> · Browser-based prototype built with HTML, CSS and JavaScript. Request intake, prioritization, tracking and reporting are implemented. Microsoft 365 / Teams / SharePoint integrations are <strong>not</strong> connected.</section>
+    </main>
+  </div>
+  <dialog id="newRequestDialog" aria-labelledby="formHeading"><form method="dialog" id="requestForm"><div class="dialog-title"><h2 id="formHeading">Create a workplace request</h2><button id="cancelForm" type="button" aria-label="Close form">×</button></div><p class="muted">Create a fictional request for the portfolio demonstration.</p><label>Request title<input name="title" maxlength="90" required placeholder="e.g. SharePoint access request" /></label><div class="form-grid"><label>Department<select name="department" id="departmentSelect" required></select></label><label>Service category<select name="category" id="categorySelect" required></select></label><label>Impact<select name="impact"><option value="1">1 — Individual</option><option value="2">2 — Team</option><option value="3">3 — Organization</option></select></label><label>Urgency<select name="urgency"><option value="1">1 — Low</option><option value="2">2 — Medium</option><option value="3">3 — High</option></select></label></div><label>Details<textarea name="description" rows="3" placeholder="Short context and expected outcome"></textarea></label><div class="dialog-actions"><button type="button" id="closeForm" class="button button-ghost">Cancel</button><button type="submit" class="button button-primary">Create request</button></div></form></dialog>
+  <script src="core.js"></script><script src="app.js"></script>
+</body>
+</html>
