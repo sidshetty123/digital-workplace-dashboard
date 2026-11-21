@@ -1,76 +1,72 @@
-# Digital Workplace Request & Improvement Dashboard
+# Digital Workplace Dashboard
 
-**Portfolio prototype | November 2026 | HTML, CSS, JavaScript**
+A browser-based dashboard for organizing everyday workplace IT requests. It brings request details, ownership, priorities, and status updates into one view so recurring issues and outstanding work are easier to spot.
 
-An offline digital workplace operations prototype designed around the responsibilities of an IT / digital workplace internship: processing cross-functional requests, identifying operational bottlenecks, and presenting concise improvement opportunities. **This is a fictional demonstration with synthetic data; it is not connected to Lidl, Microsoft 365, or any production service.**
+Built with HTML, CSS, and vanilla JavaScript. No backend or paid services are required.
 
-## Run the demo (free; no installation)
+## Features
 
-1. Download and unzip the project.
-2. Open `index.html` in Chrome or Edge. If your browser restricts local-file storage, run `python -m http.server 8000` inside the unzipped project folder and open `http://localhost:8000`.
-3. Explore sample requests and KPIs, update any owner or status, or click **+ New request**.
-4. Use **Export CSV** to save the current records for Excel. **Reset demo** restores synthetic examples.
+- **Request tracking:** Create requests for Teams, Outlook, SharePoint, OneDrive, device access, and other workplace services.
+- **Priority assignment:** Calculate P1–P4 priorities from impact and urgency scores.
+- **Workflow updates:** Assign an owner and move requests through New, In Progress, Waiting, and Resolved.
+- **Dashboard metrics:** View open requests, high-priority items, overdue requests, and resolution rate.
+- **Filtering and reporting:** Search by request details, filter by status or priority, and export records as CSV.
+- **Improvement insights:** Highlight urgent work and frequently requested service categories using simple rules.
 
-All state remains in your browser's `localStorage` until you reset it or clear site data. It is not shared between devices. Do not enter real employee information or confidential details.
+## Run locally
 
-![Dashboard preview](assets/dashboard_preview.png)
+1. Download the repository as a ZIP and extract it.
+2. Open `index.html` in a modern browser.
 
-## Features actually implemented
+Or serve the folder locally using Python:
 
-- Structured request intake for Teams, SharePoint, Outlook, OneDrive, device/access and general workplace topics.
-- Deterministic impact × urgency categorization into P1/P2/P3/P4 priorities.
-- Status workflow: New → In Progress → Waiting → Resolved; editable assigned owner.
-- KPIs: total, active, high-priority open, illustrative SLA-overdue and resolution rate.
-- Summary charts by status and workplace service category.
-- Search, filters, recommendations and Excel-compatible CSV export.
-- Preloaded synthetic requests; responsive browser interface.
-
-### Why this project is relevant
-
-| Internship activity | Prototype evidence |
-|---|---|
-| Cross-functional digital workplace topics | Requests from multiple departments and tool categories |
-| Small operational concepts | Prioritization matrix, target response times, ownership and handover workflow |
-| Support to day-to-day operations | Tracker, follow-up statuses, overdue monitoring and reports |
-| Continuous improvement | Category trends and rules-based suggestions for self-service documentation |
-
-## Business rules (for demonstration only)
-
-Impact and urgency are scored 1–3. A product of 9 = P1; 6 = P2; 3–4 = P3; 1–2 = P4. Illustrative target response windows: P1 = 4h, P2 = 24h, P3 = 72h, P4 = 7 days. These values **are illustrative training assumptions**, not Lidl or ITIL standards. Resolved requests are never counted as overdue. The dashboard uses the user's local computer time for measuring elapsed time since request creation.
-
-## Test
-
-With Node.js installed:
-
-```sh
-node --test tests/test_core.js
+```bash
+python -m http.server 8000
 ```
 
-The tests cover prioritization, KPI consistency, resolved-request SLA handling, CSV escaping, and insight generation.
+Then open `http://localhost:8000/`.
 
-## Repository layout
+## Using the dashboard
 
-- `index.html` – accessible dashboard interface and request form
-- `styles.css` – responsive visual styling
-- `core.js` – pure business functions / priority and KPI rules
-- `app.js` – UI, browser storage, filtering and export
-- `tests/test_core.js` – automated rule tests
-- `data/example_requests.csv` – export of the original synthetic sample
-- `PROJECT_BRIEF.md` – problem statement, stakeholders, KPIs and implementation roadmap
+1. Select **+ New request** to enter an issue, department, service category, impact, and urgency.
+2. Review the automatically calculated priority in the tracker.
+3. Change the assigned owner or status directly in the table.
+4. Use the overview and improvement insights to review the request workload.
+5. Select **Export CSV** to download the current records or **Reset demo** to restore the sample requests.
 
-## Known limitations and possible next steps
+## How prioritization works
 
-- Data is browser-local and single-user; no server, database, or user permissions.
-- No real Microsoft 365, Teams, SharePoint, Power Automate, Microsoft Graph or ServiceNow integration.
-- This is a **process operations prototype**, not an enterprise ticket platform.
-- Proposed extension: integrate with a controlled SharePoint list or Power Automate flow in an eligible developer tenant, add role-based views, audit log, service catalogue, and feedback surveys. Access to a Microsoft developer sandbox is subject to eligibility and administration.
+Each request receives an impact score (1–3) and urgency score (1–3). The product determines the priority:
 
-## Suggested interview demo (3 minutes)
+| Score | Priority |
+| --- | --- |
+| 9 | P1 — Critical |
+| 6 | P2 — High |
+| 3–4 | P3 — Medium |
+| 1–2 | P4 — Low |
 
-1. Explain the fictional scenario: an international organization needs visibility of workplace service requests.
-2. Create a SharePoint request with team-wide impact and high urgency; show automated P2.
-3. Assign an owner and move the task to `In Progress`.
-4. Show how the request affects the open/high-priority KPIs and dashboard.
-5. Export CSV for reporting, then describe next steps toward an actual Microsoft 365 workflow.
+The overdue indicator uses example response targets of 4 hours (P1), 24 hours (P2), 72 hours (P3), and 7 days (P4). These are project assumptions, not service-level commitments.
 
-**CV wording:** “Built a browser-based prototype to register, prioritize and monitor cross-functional digital workplace requests; implemented KPI reporting and CSV export (HTML/CSS/JavaScript).”
+## Tech stack
+
+- **HTML5:** Page structure and request form
+- **CSS3:** Dashboard layout and responsive design
+- **JavaScript:** Prioritization logic, table updates, filters, and CSV export
+- **Browser localStorage:** Persistence on the current browser and device
+
+## Project files
+
+```text
+index.html       Dashboard interface
+styles.css       Styles and responsive layout
+app.js           UI interactions and browser storage
+core.js          Priority rules, metrics, and sample requests
+PROJECT_BRIEF.md Project scope and design notes
+README.md        Documentation
+```
+
+## Current scope
+
+This is a single-user prototype with fictional requests. Data is stored in the browser, not in a shared database, and does not sync between devices. It does not access live Microsoft 365 services. Avoid entering real employee or confidential information.
+
+Potential extensions include a shared database, authentication, role-based permissions, and integrations with workplace service tools.
