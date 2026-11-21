@@ -1,0 +1,13 @@
+id,createdAt,title,department,category,impact,urgency,priority,owner,status,description
+"DW-001","2026-11-18T07:00:00.000Z","Teams meeting audio issue","Sales","Microsoft Teams","2","3","P2 - High","Collaboration IT","In Progress","Audio not connecting in daily coordination calls"
+"DW-002","2026-11-17T17:00:00.000Z","SharePoint document permissions","HR","SharePoint","3","2","P2 - High","Collaboration IT","Waiting","Team cannot access onboarding checklist"
+"DW-003","2026-11-18T11:00:00.000Z","Outlook mailbox access","Finance","Outlook","3","3","P1 - Critical","Service Desk","New","Shared mailbox unavailable to finance team"
+"DW-004","2026-11-14T12:00:00.000Z","OneDrive sync difficulties","Store Operations","OneDrive","1","2","P4 - Low","Service Desk","Resolved","Files were not syncing to workstation"
+"DW-005","2026-11-17T09:00:00.000Z","New device setup request","Logistics","Device & Access","2","2","P3 - Medium","Workplace IT","In Progress","Laptop setup for new employee"
+"DW-006","2026-11-13T07:00:00.000Z","Teams channel organization","IT","Microsoft Teams","1","1","P4 - Low","Collaboration IT","Resolved","Improve channel naming conventions"
+"DW-007","2026-11-17T23:00:00.000Z","SharePoint folder duplication","Sales","SharePoint","2","2","P3 - Medium","Unassigned","New","Reduce duplicate file copies and clarify ownership"
+"DW-008","2026-11-11T14:00:00.000Z","Outlook distribution list change","HR","Outlook","1","2","P4 - Low","Service Desk","Resolved","Add colleagues to department mailing list"
+"DW-009","2026-11-18T10:00:00.000Z","OneDrive sharing policy question","Finance","OneDrive","2","1","P4 - Low","Unassigned","New","Clarify external sharing of financial working files"
+"DW-010","2026-11-17T05:00:00.000Z","Teams room scheduling issue","Store Operations","Microsoft Teams","2","3","P2 - High","Workplace IT","In Progress","Shared meeting room not bookable"
+"DW-011","2026-11-16T12:00:00.000Z","Access request for shared files","Logistics","Device & Access","3","2","P2 - High","Service Desk","Waiting","Team needs access to operational documentation"
+"DW-012","2026-11-15T16:00:00.000Z","SharePoint metadata proposal","IT","SharePoint","1","1","P4 - Low","Collaboration IT","New","Propose labels to improve search and discovery"
